@@ -78,22 +78,32 @@ class MainMenu extends Component {
                 </ul>
                 <div>
                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li className="nav-item">
-                        
-                        {this.state.account?
-                        <NavLink to="/" className="nav-link text-danger">
-                            {this.state.account.username}
-                        </NavLink> :
-                        <NavLink to="/login" className="nav-link">
-                            login
-                        </NavLink>
-                        }
-                    </li>
-                    <li className="nav-item">
-                        <NavLink to="/logout" className="nav-link">logout</NavLink>
-                    </li>
+                {this.state.account?
+                    <React.Fragment>
+                        <li className="nav-item">
+                            <NavLink to="/" className="nav-link text-danger">
+                                {this.state.account.username}
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to="/logout" className="nav-link">logout</NavLink>
+                        </li> 
+                    </React.Fragment> :
+                    <React.Fragment>
+                        <li className="nav-item">
+                            <NavLink to="/login" className="nav-link">
+                                login
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to="/sign-up" className="nav-link">
+                                Sign Up
+                            </NavLink>
+                        </li>
+                    </React.Fragment> 
+                }
                 </ul>
-            </div>
+                </div>
             </div>
         </nav>
     )

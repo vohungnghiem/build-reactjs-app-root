@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 window.jQuery = window.$ = $;
+
 export default class MessageAlert extends Component {
     onReset = () => {
+        localStorage.setItem('login',this.props.messageAlert.successstorage.token);
+        
         this.props.onReset()
+        
     }
-    render() { 
-          
+    render() {  
     return (
         <div className="overlay" onClick={this.onReset}>
         <div className="container">
         <div className="overlay-content">
-            <div className="modal-content">
+            <div className="modal-content mt-5">
                     {/* Modal Header */}
                     <div className="modal-header bg-info">
                         <h4 className="modal-title text-white">Alert</h4>
-                        <button type="button" className="close" onClick={this.onReset}>×</button>
+                        <a href="/" onClick={this.onReset} className=" close btn btn-default"> x </a>
                     </div>
                     {/* Modal body */}
                     <div className="modal-body">
@@ -39,7 +42,9 @@ export default class MessageAlert extends Component {
                     </div>
                     {/* Modal footer */}
                     <div className="modal-footer">
-                        <button type="button" onClick={this.onReset} className="btn btn-info">Close</button>
+                        <a href="/" onClick={this.onReset} className="btn btn-default">
+                           close
+                        </a>
                     </div>
                 </div>
         </div>

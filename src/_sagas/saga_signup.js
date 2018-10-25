@@ -41,8 +41,10 @@ export function* sagaSignUp(payload){
         }));
       } else {
         yield put(success({ 
-          success : 'Sign up success!'
+          success : 'Sign up success!',
+          successstorage: signUp
         }));
+        console.log(signUp);
       } 
     }
   } catch (error) {
